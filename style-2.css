@@ -1,1 +1,105 @@
+        :root {
+            --bg-color: #000;
+            --desktop-bg: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80');
+            --taskbar-color: rgba(20, 20, 20, 0.9);
+            --window-bg: #f0f0f0;
+            --accent: #0078d7;
+        }
 
+        * { box-sizing: border-box; user-select: none; }
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+        /* 1. Boot & Login Screen */
+        #boot-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #000; color: white; z-index: 9999;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            transition: opacity 1s ease;
+        }
+        #login-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--desktop-bg) no-repeat center center/cover;
+            z-index: 9998;
+            display: none; /* Hidden initially */
+            flex-direction: column; justify-content: center; align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        .login-box {
+            background: rgba(0, 0, 0, 0.6); padding: 40px; border-radius: 10px;
+            text-align: center; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .avatar { width: 100px; height: 100px; background: #ddd; border-radius: 50%; margin: 0 auto 20px; background-image: url('https://cdn-icons-png.flaticon.com/512/3135/3135715.png'); background-size: cover; }
+        .password-input {
+            background: rgba(255,255,255,0.2); border: 2px solid transparent;
+            padding: 10px; color: white; font-size: 16px; text-align: center;
+            outline: none; width: 200px; border-radius: 4px;
+        }
+        .password-input:focus { border-color: var(--accent); }
+        .cursor { animation: blink 1s infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        /* 2. Desktop Environment */
+        #desktop {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--desktop-bg) no-repeat center center/cover;
+            display: none; /* Hidden until login */
+            flex-direction: column; justify-content: space-between;
+        }
+
+        /* Icons Area */
+        .icons-container {
+            padding: 20px; display: flex; flex-direction: column; gap: 20px; width: 100px;
+        }
+        .desktop-icon {
+            width: 80px; text-align: center; color: white; text-shadow: 1px 1px 3px black;
+            cursor: pointer; padding: 10px; border-radius: 5px; transition: background 0.2s;
+        }
+        .desktop-icon:hover { background: rgba(255,255,255,0.2); }
+        .desktop-icon img { width: 48px; height: 48px; margin-bottom: 5px; }
+        .desktop-icon span { display: block; font-size: 12px; }
+
+        /* Taskbar */
+        #taskbar {
+            height: 45px; background: var(--taskbar-color);
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 15px; color: white; border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .start-btn {
+            background: var(--accent); padding: 5px 15px; border-radius: 3px;
+            font-weight: bold; cursor: pointer;
+        }
+        .clock { font-size: 14px; }
+
+        /* 3. Draggable Windows */
+        .window {
+            position: absolute; top: 100px; left: 100px;
+            width: 400px; height: 300px;
+            background: var(--window-bg);
+            border: 1px solid #999; box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+            display: none; flex-direction: column;
+            border-radius: 6px; overflow: hidden;
+            resize: both; min-width: 200px; min-height: 150px;
+        }
+        .window-header {
+            background: #ddd; padding: 5px 10px;
+            display: flex; justify-content: space-between; align-items: center;
+            cursor: grab; border-bottom: 1px solid #ccc;
+        }
+        .window-header:active { cursor: grabbing; }
+        .close-btn {
+            background: #ff5f57; width: 12px; height: 12px;
+            border-radius: 50%; border: none; cursor: pointer;
+        }
+        .window-content {
+            flex: 1; padding: 10px; display: flex;
+            justify-content: center; align-items: center;
+            background: #fff; overflow: auto;
+        }
+        .window-content img {
+            max-width: 100%; max-height: 100%;
+            cursor: pointer; transition: transform 0.2s;
+        }
+        .window-content img:hover { transform: scale(1.05); }
+
+        /* Utility */
+        .hidden { display: none !important; }
