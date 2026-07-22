@@ -12,38 +12,38 @@
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
 </head>
- 
-</head>
+
 <body>
-    <!-- Boot Screen -->
-    <div id="boot-screen">
-        <h2>Starting System...</h2>
-        <div style="width: 200px; height: 4px; background: #333; margin-top: 20px; border-radius: 2px;">
-            <div id="load-bar" style="width: 0%; height: 100%; background: white; transition: width 2s ease-in-out;"></div>
-        </div>
-    </div>
 
-    <!-- Login Screen -->
-    <div id="login-screen">
-        <div class="login-box">
-            <div class="avatar"></div>
-            <h3>User</h3>
-            <input type="password" id="fake-pass" class="password-input" readonly>
-            <p style="font-size: 12px; margin-top: 10px; opacity: 0.8;">Simulating Entry...</p>
-        </div>
-    </div>
+                                                                          <div id="boot-screen">
+                        <h2>Whose on the computer now...?</h2>
+                        
+                    <div style="width: 200px; height: 4px; background: #333; margin-top: 20px; border-radius: 2px;">
+                            <div id="load-bar" style="width: 0%; height: 100%; background: white; transition: width 2s ease-in-out;"></div>
+                        </div>
+                    </div>
 
-    <!-- Desktop -->
+
+                    <div id="login-screen">
+                        <div class="login-box">
+                            <div class="avatar"></div>
+                            <h3>Milagro</h3>
+                            <input type="password" id="fake-pass" class="password-input" readonly>
+                            <p style="font-size: 12px; margin-top: 10px; opacity: 0.8;">typing...</p>
+                        </div>
+                    </div>
+
+
     <div id="desktop">
-        <!-- Icons -->
+
         <div class="icons-container">
             <div class="desktop-icon" onclick="openWindow('win1')">
                 <img src="https://cdn-icons-png.flaticon.com/512/2921/2921226.png" alt="Folder">
-                <span>Photos</span>
+                <span>Pictures</span>
             </div>
             <div class="desktop-icon" onclick="openWindow('win2')">
                 <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="Browser">
-                <span>Internet</span>
+                <span>WorkitBrowser</span>
             </div>
             <div class="desktop-icon" onclick="openWindow('win3')">
                 <img src="https://cdn-icons-png.flaticon.com/512/2921/2921236.png" alt="Settings">
@@ -119,20 +119,17 @@
         </div>
     </div>
 
- <script>
-        /* --- JAVASCRIPT LOGIC --- */
-
-        // 1. Boot Sequence
+    <script>
+        
         window.onload = function() {
             const loadBar = document.getElementById('load-bar');
             const bootScreen = document.getElementById('boot-screen');
             const loginScreen = document.getElementById('login-screen');
             
-            // Animate load bar
-            setTimeout(() => { loadBar.style.width = '100%'; }, 100);
+          
+           setTimeout(() => { loadBar.style.width = '100%'; }, 100);
 
-            // Switch to login screen after 2.5 seconds
-            setTimeout(() => {
+                        setTimeout(() => {
                 bootScreen.style.opacity = '0';
                 setTimeout(() => {
                     bootScreen.style.display = 'none';
@@ -142,7 +139,7 @@
             }, 2500);
         };
 
-        // 2. Typing Animation
+
         function simulateTyping() {
             const input = document.getElementById('fake-pass');
             const password = "********";
@@ -154,7 +151,7 @@
                     i++;
                 } else {
                     clearInterval(typeInterval);
-                    // Proceed to desktop after typing finishes
+
                     setTimeout(loginToDesktop, 800);
                 }
             }, 150); // Speed of typing
@@ -266,8 +263,7 @@ function closeWindow(id) {
     document.getElementById(id).style.display = 'none';
 }   
     </script>
+
 </body>
-</html>   
-	
-</body>
-</html>   
+
+</html>
