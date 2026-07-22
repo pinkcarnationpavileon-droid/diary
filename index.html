@@ -120,7 +120,7 @@
     </div>
 
     <script>
-        /* --- JAVASCRIPT LOGIC --- */
+       
 
         // 1. Boot Sequence
         window.onload = function() {
@@ -198,6 +198,40 @@
             zIndexCounter++;
             element.style.zIndex = zIndexCounter;
         }
+
+		/* Add these functions to your <script> */
+
+function minimizeWindow(id) {
+    const win = document.getElementById(id);
+    // Simple mimic: hide the content but keep header, or just hide the whole window
+    // Here we hide the whole window like closing, but you could animate it to taskbar
+    win.style.display = 'none'; 
+}
+
+function maximizeWindow(id) {
+    const win = document.getElementById(id);
+    // Toggle between normal size and full screen
+    if (win.style.width === '100%') {
+        // Restore
+        win.style.width = '400px';
+        win.style.height = '300px';
+        win.style.top = '100px';
+        win.style.left = '100px';
+        win.style.borderRadius = '6px';
+    } else {
+        // Maximize
+        win.style.width = '100%';
+        win.style.height = 'calc(100% - 45px)'; // Subtract taskbar height
+        win.style.top = '0';
+        win.style.left = '0';
+        win.style.borderRadius = '0';
+    }
+}
+
+// Existing closeWindow function remains the same
+function closeWindow(id) {
+    document.getElementById(id).style.display = 'none';
+}   
 
         // 5. Draggable Logic
         let isDragging = false;
