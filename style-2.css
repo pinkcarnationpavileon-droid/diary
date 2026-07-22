@@ -81,6 +81,8 @@ body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden;
         }
 /* Add/Replace this in your <style> section */
 
+   /* Add/Replace this in your <style> section */
+
 .window-header {
     background: #e0e0e0; /* Slightly lighter header */
     padding: 8px 10px;
@@ -121,6 +123,7 @@ body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden;
     fill: #555; /* Icon color */
 }
 
+/* Specific Colors for actions (Optional, mimicking macOS/Windows) */
 .btn-close:hover { background: #ff5f57; }
 .btn-close:hover svg { fill: white; }
 
