@@ -119,78 +119,155 @@
         </div>
     </div>
 
-    <script>
-    // Wait for everything to load
-    window.addEventListener('DOMContentLoaded', () => {
-        
+ <script>
+        /* --- JAVASCRIPT LOGIC --- */
+
         // 1. Boot Sequence
-        const loadBar = document.getElementById('load-bar');
-        if(loadBar) {
+        window.onload = function() {
+            const loadBar = document.getElementById('load-bar');
+            const bootScreen = document.getElementById('boot-screen');
+            const loginScreen = document.getElementById('login-screen');
+            
+            // Animate load bar
             setTimeout(() => { loadBar.style.width = '100%'; }, 100);
+
+            // Switch to login screen after 2.5 seconds
             setTimeout(() => {
-                document.getElementById('boot-screen').style.opacity = '0';
+                bootScreen.style.opacity = '0';
                 setTimeout(() => {
-                    document.getElementById('boot-screen').style.display = 'none';
-                    document.getElementById('login-screen').style.display = 'flex';
+                    bootScreen.style.display = 'none';
+                    loginScreen.style.display = 'flex';
                     simulateTyping();
                 }, 1000);
             }, 2500);
-        }
+        };
 
         // 2. Typing Animation
         function simulateTyping() {
             const input = document.getElementById('fake-pass');
-            if(!input) return;
+            const password = "********";
             let i = 0;
-            const interval = setInterval(() => {
-                if (i < 8) { input.value += "*"; i++; } 
-                else { clearInterval(interval); setTimeout(loginToDesktop, 800); }
-            }, 150);
+            
+            const typeInterval = setInterval(() => {
+                if (i < password.length) {
+                    input.value += "*";
+                    i++;
+                } else {
+                    clearInterval(typeInterval);
+                    // Proceed to desktop after typing finishes
+                    setTimeout(loginToDesktop, 800);
+                }
+            }, 150); // Speed of typing
         }
 
         function loginToDesktop() {
-            document.getElementById('login-screen').style.opacity = '0';
+            const loginScreen = document.getElementById('login-screen');
+            const desktop = document.getElementById('desktop');
+            
+            loginScreen.style.opacity = '0';
             setTimeout(() => {
-                document.getElementById('login-screen').style.display = 'none';
-                document.getElementById('desktop').style.display = 'flex';
+                loginScreen.style.display = 'none';
+                desktop.style.display = 'flex';
                 startClock();
             }, 1000);
         }
 
-        // 3. Clock
+        // 3. Clock Functionality
         function startClock() {
+            const clockEl = document.getElementById('clock');
             setInterval(() => {
-                const el = document.getElementById('clock');
-                if(el) el.innerText = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                const now = new Date();
+                clockEl.innerText = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
             }, 1000);
         }
 
-        // 4. Window Controls
-        let zIndex = 10;
+        // 4. Window Management (Open/Close)
+        let zIndexCounter = 10;
+
+        function openWindow(id) {
+            const win = document.getElementById(id);
+            win.style.display = 'flex';
+            bringToFront(win);
+        }
+
+        function closeWindow(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+
+        function bringToFront(element) {
+            zIndexCounter++;
+            element.style.zIndex = zIndexCounter;
+        }
+
+        // 5. Draggable Logic
+        let isDragging = false;
+        let currentWindow = null;
+        let offsetX, offsetY;
+
+        function dragStart(e, id) {
+            isDragging = true;
+            currentWindow = document.getElementById(id);
+            bringToFront(currentWindow);
+            
+            // Calculate offset relative to the window
+            offsetX = e.clientX - currentWindow.getBoundingClientRect().left;
+            offsetY = e.clientY - currentWindow.getBoundingClientRect().top;
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging && currentWindow) {
+                e.preventDefault();
+                currentWindow.style.left = (e.clientX - offsetX) + 'px';
+                currentWindow.style.top = (e.clientY - offsetY) + 'px';
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+            currentWindow = null;
+        });
+
+        // Bring window to front on click
+        document.querySelectorAll('.window').forEach(win => {
+            win.addEventListener('mousedown', () => bringToFront(win));
+        });
         
-        window.openWindow = (id) => {
-            const win = document.getElementById(id);
-            if(win) { win.style.display = 'flex'; bringToFront(win); }
-        };
+        /* Add these functions to your <script> */
 
-        window.closeWindow = (id) => {
-            const win = document.getElementById(id);
-            if(win) win.style.display = 'none';
-        };
+function minimizeWindow(id) {
+    const win = document.getElementById(id);
+    // Simple mimic: hide the content but keep header, or just hide the whole window
+    // Here we hide the whole window like closing, but you could animate it to taskbar
+    win.style.display = 'none'; 
+}
 
-        window.minimizeWindow = (id) => {
-            // For now, just close it. Real minimization requires taskbar logic.
-            window.closeWindow(id);
-        };
+function maximizeWindow(id) {
+    const win = document.getElementById(id);
+    // Toggle between normal size and full screen
+    if (win.style.width === '100%') {
+        // Restore
+        win.style.width = '400px';
+        win.style.height = '300px';
+        win.style.top = '100px';
+        win.style.left = '100px';
+        win.style.borderRadius = '6px';
+    } else {
+        // Maximize
+        win.style.width = '100%';
+        win.style.height = 'calc(100% - 45px)'; // Subtract taskbar height
+        win.style.top = '0';
+        win.style.left = '0';
+        win.style.borderRadius = '0';
+    }
+}
 
-        window.maximizeWindow = (id) => {
-            const win = document.getElementById(id);
-            if(!win) return;
-            if(win.style.width === '100%') {
-                win.style.width = '400px'; win.style.height = '300px';
-                win.style.top = '100px'; win.style.left = '100px';
-            } else {
-                win.style.width = '100%'; win.st   
+// Existing closeWindow function remains the same
+function closeWindow(id) {
+    document.getElementById(id).style.display = 'none';
+}   
     </script>
+</body>
+</html>   
+	
 </body>
 </html>   
