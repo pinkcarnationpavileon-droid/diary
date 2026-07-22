@@ -79,26 +79,55 @@ body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden;
             border-radius: 6px; overflow: hidden;
             resize: both; min-width: 200px; min-height: 150px;
         }
-.window-header {
-            background: #ddd; padding: 5px 10px;
-            display: flex; justify-content: space-between; align-items: center;
-            cursor: grab; border-bottom: 1px solid #ccc;
-        }
-.window-header:active { cursor: grabbing; }
-.close-btn {
-            background: #ff5f57; width: 12px; height: 12px;
-            border-radius: 50%; border: none; cursor: pointer;
-        }
-.window-content {
-            flex: 1; padding: 10px; display: flex;
-            justify-content: center; align-items: center;
-            background: #fff; overflow: auto;
-        }
-.window-content img {
-            max-width: 100%; max-height: 100%;
-            cursor: pointer; transition: transform 0.2s;
-        }
-        .window-content img:hover { transform: scale(1.05); }
+/* Add/Replace this in your <style> section */
 
+.window-header {
+    background: #e0e0e0; /* Slightly lighter header */
+    padding: 8px 10px;
+    display: flex;
+    justify-content: space-between; /* Pushes title left, controls right */
+    align-items: center;
+    cursor: grab;
+    border-bottom: 1px solid #ccc;
+    user-select: none;
+}
+
+.window-controls {
+    display: flex;
+    gap: 8px; /* Space between icons */
+}
+
+.control-btn {
+    width: 12px;
+    height: 12px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.2s;
+    padding: 0;
+}
+
+.control-btn:hover {
+    background: rgba(0,0,0,0.1);
+}
+
+.control-btn svg {
+    width: 10px;
+    height: 10px;
+    fill: #555; /* Icon color */
+}
+
+.btn-close:hover { background: #ff5f57; }
+.btn-close:hover svg { fill: white; }
+
+.btn-minimize:hover { background: #ffbd2e; }
+.btn-minimize:hover svg { fill: white; }
+
+.btn-maximize:hover { background: #28c940; }
+.btn-maximize:hover svg { fill: white; }   
 
 .hidden { display: none !important; }
