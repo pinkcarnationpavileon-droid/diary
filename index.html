@@ -1,269 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="style-2.css">
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
   <title>what's the ₛᵤbₛcᵣᵢbₑd list like?</title>
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="style-2.css">
+  
+  <!-- Favicon & Fonts -->
   <link rel="icon" type="image/jpeg" href="newfavicon.png" alt="myface">
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-                                                                          <div id="boot-screen">
-                        <h2>Whose on the computer now...?</h2>
-                        
-                    <div style="width: 200px; height: 4px; background: #333; margin-top: 20px; border-radius: 2px;">
-                            <div id="load-bar" style="width: 0%; height: 100%; background: white; transition: width 2s ease-in-out;"></div>
-                        </div>
-                    </div>
+  <!-- Boot Screen -->
+  <div id="boot-screen">
+    <h2>Whose on the computer now...?</h2>
+    <div class="progress-bar-container" style="width: 200px; height: 4px; background: #333; margin-top: 20px; border-radius: 2px;">
+      <div id="load-bar" style="width: 0%; height: 100%; background: white; transition: width 2s ease-in-out;"></div>
+    </div>
+  </div>
 
+  <!-- Login Screen -->
+  <div id="login-screen">
+    <div class="login-box">
+      <div class="avatar"></div>
+      <h3>Milagro</h3>
+      <input type="password" id="fake-pass" class="password-input" readonly>
+      <p style="font-size: 12px; margin-top: 10px; opacity: 0.8;">typing...</p>
+    </div>
+  </div>
 
-                    <div id="login-screen">
-                        <div class="login-box">
-                            <div class="avatar"></div>
-                            <h3>Milagro</h3>
-                            <input type="password" id="fake-pass" class="password-input" readonly>
-                            <p style="font-size: 12px; margin-top: 10px; opacity: 0.8;">typing...</p>
-                        </div>
-                    </div>
+  <!-- Desktop Environment -->
+  <div id="desktop">
 
+    <!-- Desktop Icons -->
+    <div class="icons-container">
+      <div class="desktop-icon" onclick="openWindow('win1')">
+        <img src="https://cdn-icons-png.flaticon.com/512/2921/2921226.png" alt="Folder">
+        <span>Pictures</span>
+      </div>
+      <div class="desktop-icon" onclick="openWindow('win2')">
+        <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="Browser">
+        <span>WorkitBrowser</span>
+      </div>
+      <div class="desktop-icon" onclick="openWindow('win3')">
+        <img src="https://cdn-icons-png.flaticon.com/512/2921/2921236.png" alt="Settings">
+        <span>Settings</span>
+      </div>
+    </div>
 
-    <div id="desktop">
-
-        <div class="icons-container">
-            <div class="desktop-icon" onclick="openWindow('win1')">
-                <img src="https://cdn-icons-png.flaticon.com/512/2921/2921226.png" alt="Folder">
-                <span>Pictures</span>
-            </div>
-            <div class="desktop-icon" onclick="openWindow('win2')">
-                <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="Browser">
-                <span>WorkitBrowser</span>
-            </div>
-            <div class="desktop-icon" onclick="openWindow('win3')">
-                <img src="https://cdn-icons-png.flaticon.com/512/2921/2921236.png" alt="Settings">
-                <span>Settings</span>
-            </div>
-        </div>
-
-        <!-- Windows (Hidden by default) -->
-        <!-- Window 1 -->
-        <!-- Window 1 Example -->
-<div id="win1" class="window">
-    <div class="window-header" onmousedown="dragStart(event, 'win1')">
+    <!-- Window 1: Photo Viewer -->
+    <div id="win1" class="window">
+      <div class="window-header" onmousedown="dragStart(event, 'win1')">
         <span>Photo Viewer</span>
-        
-        <!-- Window Controls Container -->
-        <div class="window-controls">
-            <!-- Minimize (Heart Icon) -->
-            <button class="control-btn btn-minimize" onclick="minimizeWindow('win1')" title="Minimize">
-                <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-            </button>
-            
-            <!-- Maximize (Square Icon) -->
-            <button class="control-btn btn-maximize" onclick="maximizeWindow('win1')" title="Maximize">
-                <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3V3zm2 2v14h14V5H5z"/></svg>
-            </button>
-
-            <!-- Close (X Icon) -->
-            <button class="control-btn btn-close" onclick="closeWindow('win1')" title="Close">
-                <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-            </button>
-        </div>
-    </div>
-    <div class="window-content">
+        <button class="close-btn" onclick="closeWindow('win1')"></button>
+      </div>
+      <div class="window-content">
         <a href="https://www.google.com" target="_blank" style="text-decoration: none;">
-            <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=400&q=80" alt="Nature">
-            <div style="position:absolute; color:black; background:rgba(255,255,255,0.7); padding:5px; margin-top:-40px;">Click to Visit</div>
+          <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=400&q=80" alt="Nature">
+          <div style="position: absolute; color: black; background: rgba(255,255,255,0.7); padding: 5px; margin-top: -40px;">Click to Visit</div>
         </a>
-    </div>
-</div>   
-
-        <!-- Window 2 -->
-        <div id="win2" class="window" style="top: 150px; left: 150px;">
-            <div class="window-header" onmousedown="dragStart(event, 'win2')">
-                <span>Web Browser</span>
-                <button class="close-btn" onclick="closeWindow('win2')"></button>
-            </div>
-            <div class="window-content">
-                <a href="https://www.wikipedia.org" target="_blank" style="text-decoration: none;">
-                    <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=400&q=80" alt="Server">
-                    <div style="position:absolute; color:black; background:rgba(255,255,255,0.7); padding:5px; margin-top:-40px;">Click to Search</div>
-                </a>
-            </div>
-        </div>
-
-        <!-- Window 3 -->
-        <div id="win3" class="window" style="top: 200px; left: 200px;">
-            <div class="window-header" onmousedown="dragStart(event, 'win3')">
-                <span>System Settings</span>
-                <button class="close-btn" onclick="closeWindow('win3')"></button>
-            </div>
-            <div class="window-content">
-                <a href="https://github.com" target="_blank" style="text-decoration: none;">
-                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80" alt="Chip">
-                    <div style="position:absolute; color:black; background:rgba(255,255,255,0.7); padding:5px; margin-top:-40px;">Click to Update</div>
-                </a>
-            </div>
-        </div>
-
-        <!-- Taskbar -->
-        <div id="taskbar">
-            <div class="start-btn">Start</div>
-            <div class="clock" id="clock">12:00 PM</div>
-        </div>
+      </div>
     </div>
 
-    <script>
-        
-        window.onload = function() {
-            const loadBar = document.getElementById('load-bar');
-            const bootScreen = document.getElementById('boot-screen');
-            const loginScreen = document.getElementById('login-screen');
-            
-          
-           setTimeout(() => { loadBar.style.width = '100%'; }, 100);
+    <!-- Window 2: Web Browser -->
+    <div id="win2" class="window" style="top: 150px; left: 150px;">
+      <div class="window-header" onmousedown="dragStart(event, 'win2')">
+        <span>Web Browser</span>
+        <button class="close-btn" onclick="closeWindow('win2')"></button>
+      </div>
+      <div class="window-content">
+        <a href="https://www.wikipedia.org" target="_blank" style="text-decoration: none;">
+          <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=400&q=80" alt="Server">
+          <div style="position: absolute; color: black; background: rgba(255,255,255,0.7); padding: 5px; margin-top: -40px;">Click to Search</div>
+        </a>
+      </div>
+    </div>
 
-                        setTimeout(() => {
-                bootScreen.style.opacity = '0';
-                setTimeout(() => {
-                    bootScreen.style.display = 'none';
-                    loginScreen.style.display = 'flex';
-                    simulateTyping();
-                }, 1000);
-            }, 2500);
-        };
+    <!-- Window 3: System Settings -->
+    <div id="win3" class="window" style="top: 200px; left: 200px;">
+      <div class="window-header" onmousedown="dragStart(event, 'win3')">
+        <span>System Settings</span>
+        <button class="close-btn" onclick="closeWindow('win3')"></button>
+      </div>
+      <div class="window-content">
+        <a href="https://github.com" target="_blank" style="text-decoration: none;">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80" alt="Chip">
+          <div style="position: absolute; color: black; background: rgba(255,255,255,0.7); padding: 5px; margin-top: -40px;">Click to Update</div>
+        </a>
+      </div>
+    </div>
 
+    <!-- Taskbar -->
+    <div id="taskbar">
+      <div class="start-btn">Start</div>
+      <div class="clock" id="clock">12:00 PM</div>
+    </div>
 
-        function simulateTyping() {
-            const input = document.getElementById('fake-pass');
-            const password = "********";
-            let i = 0;
-            
-            const typeInterval = setInterval(() => {
-                if (i < password.length) {
-                    input.value += "*";
-                    i++;
-                } else {
-                    clearInterval(typeInterval);
+  </div>
 
-                    setTimeout(loginToDesktop, 800);
-                }
-            }, 150); // Speed of typing
+  <!-- Scripts -->
+  <script>
+    // --- 1. Boot & Login Flow ---
+    window.onload = function() {
+      const loadBar = document.getElementById('load-bar');
+      const bootScreen = document.getElementById('boot-screen');
+      const loginScreen = document.getElementById('login-screen');
+
+      // Animate progress bar
+      setTimeout(() => { loadBar.style.width = '100%'; }, 100);
+
+      // Transition from Boot -> Login Screen
+      setTimeout(() => {
+        bootScreen.style.opacity = '0';
+        setTimeout(() => {
+          bootScreen.style.display = 'none';
+          loginScreen.style.display = 'flex';
+          simulateTyping();
+        }, 1000);
+      }, 2500);
+    };
+
+    function simulateTyping() {
+      const input = document.getElementById('fake-pass');
+      const password = "********";
+      let i = 0;
+
+      const typeInterval = setInterval(() => {
+        if (i < password.length) {
+          input.value += "*";
+          i++;
+        } else {
+          clearInterval(typeInterval);
+          setTimeout(loginToDesktop, 800);
         }
-
-        function loginToDesktop() {
-            const loginScreen = document.getElementById('login-screen');
-            const desktop = document.getElementById('desktop');
-            
-            loginScreen.style.opacity = '0';
-            setTimeout(() => {
-                loginScreen.style.display = 'none';
-                desktop.style.display = 'flex';
-                startClock();
-            }, 1000);
-        }
-
-        // 3. Clock Functionality
-        function startClock() {
-            const clockEl = document.getElementById('clock');
-            setInterval(() => {
-                const now = new Date();
-                clockEl.innerText = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            }, 1000);
-        }
-
-        // 4. Window Management (Open/Close)
-        let zIndexCounter = 10;
-
-        function openWindow(id) {
-            const win = document.getElementById(id);
-            win.style.display = 'flex';
-            bringToFront(win);
-        }
-
-        function closeWindow(id) {
-            document.getElementById(id).style.display = 'none';
-        }
-
-        function bringToFront(element) {
-            zIndexCounter++;
-            element.style.zIndex = zIndexCounter;
-        }
-
-        // 5. Draggable Logic
-        let isDragging = false;
-        let currentWindow = null;
-        let offsetX, offsetY;
-
-        function dragStart(e, id) {
-            isDragging = true;
-            currentWindow = document.getElementById(id);
-            bringToFront(currentWindow);
-            
-            // Calculate offset relative to the window
-            offsetX = e.clientX - currentWindow.getBoundingClientRect().left;
-            offsetY = e.clientY - currentWindow.getBoundingClientRect().top;
-        }
-
-        document.addEventListener('mousemove', (e) => {
-            if (isDragging && currentWindow) {
-                e.preventDefault();
-                currentWindow.style.left = (e.clientX - offsetX) + 'px';
-                currentWindow.style.top = (e.clientY - offsetY) + 'px';
-            }
-        });
-
-        document.addEventListener('mouseup', () => {
-            isDragging = false;
-            currentWindow = null;
-        });
-
-        // Bring window to front on click
-        document.querySelectorAll('.window').forEach(win => {
-            win.addEventListener('mousedown', () => bringToFront(win));
-        });
-        
-        /* Add these functions to your <script> */
-
-function minimizeWindow(id) {
-    const win = document.getElementById(id);
-    // Simple mimic: hide the content but keep header, or just hide the whole window
-    // Here we hide the whole window like closing, but you could animate it to taskbar
-    win.style.display = 'none'; 
-}
-
-function maximizeWindow(id) {
-    const win = document.getElementById(id);
-    // Toggle between normal size and full screen
-    if (win.style.width === '100%') {
-        // Restore
-        win.style.width = '400px';
-        win.style.height = '300px';
-        win.style.top = '100px';
-        win.style.left = '100px';
-        win.style.borderRadius = '6px';
-    } else {
-        // Maximize
-        win.style.width = '100%';
-        win.style.height = 'calc(100% - 45px)'; // Subtract taskbar height
-        win.style.top = '0';
-        win.style.left = '0';
-        win.style.borderRadius = '0';
+      }, 150);
     }
-}
 
-// Existing closeWindow function remains the same
-function closeWindow(id) {
-    document.getElementById(id).style.display = 'none';
-}   
-    </script>
+    function loginToDesktop() {
+      const loginScreen = document.getElementById('login-screen');
+      const desktop = document.getElementById('desktop');
+
+      loginScreen.style.opacity = '0';
+      setTimeout(() => {
+        loginScreen.style.display = 'none';
+        desktop.style.display = 'flex';
+        startClock();
+      }, 1000);
+    }
+
+    // --- 2. Clock ---
+    function startClock() {
+      const clockEl = document.getElementById('clock');
+      setInterval(() => {
+        const now = new Date();
+        clockEl.innerText = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      }, 1000);
+    }
+
+    // --- 3. Window Management & Z-Index ---
+    let zIndexCounter = 10;
+
+    function openWindow(id) {
+      const win = document.getElementById(id);
+      win.style.display = 'flex';
+      bringToFront(win);
+    }
+
+    function closeWindow(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+
+    function bringToFront(element) {
+      zIndexCounter++;
+      element.style.zIndex = zIndexCounter;
+    }
+
+    // --- 4. Window Dragging Logic ---
+    let isDragging = false;
+    let currentWindow = null;
+    let offsetX = 0;
+    let offsetY = 0;
+
+    function dragStart(e, id) {
+      isDragging = true;
+      currentWindow = document.getElementById(id);
+      bringToFront(currentWindow);
+
+      const rect = currentWindow.getBoundingClientRect();
+      offsetX = e.clientX - rect.left;
+      offsetY = e.clientY - rect.top;
+    }
+
+    document.addEventListener('mousemove', (e) => {
+      if (isDragging && currentWindow) {
+        e.preventDefault();
+        currentWindow.style.left = (e.clientX - offsetX) + 'px';
+        currentWindow.style.top = (e.clientY - offsetY) + 'px';
+      }
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+      currentWindow = null;
+    });
+
+    // Bring active window to front when clicked anywhere inside it
+    document.querySelectorAll('.window').forEach(win => {
+      win.addEventListener('mousedown', () => bringToFront(win));
+    });
+  </script>
 
 </body>
-
 </html>
