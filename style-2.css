@@ -1,6 +1,6 @@
 :root {
             --bg-color: #000;
-            --desktop-bg: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80');
+            --desktop-bg: url('https://nicegirlslumber.neocities.org/Sleepinatnight.png');
             --taskbar-color: rgba(20, 20, 20, 0.9);
             --window-bg: #f0f0f0;
             --accent: #0078d7;
@@ -11,7 +11,7 @@ body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden;
 
 #boot-screen {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: #000; color: white; z-index: 9999;
+            background: url('https://nicegirlslumber.neocities.org/vloggerU.jpg'); z-index: 9999;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             transition: opacity 1s ease;
         }
