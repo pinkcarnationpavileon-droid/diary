@@ -124,19 +124,19 @@ body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden;
 }
 
 .control-btn svg {
-    width: 10px;
-    height: 10px;
-    fill: #555; /* Icon color */
+    width: 20px;
+    height: 20px;
+    fill: #F09CCB; /* Icon color */
 }
 
 /* Specific Colors for actions (Optional, mimicking macOS/Windows) */
-.btn-close:hover { background: #ff5f57; }
+.btn-close:hover { background: #F2A2DE; }
 .btn-close:hover svg { fill: white; }
 
-.btn-minimize:hover { background: #ffbd2e; }
+.btn-minimize:hover { background: #F2A2DE; }
 .btn-minimize:hover svg { fill: white; }
 
-.btn-maximize:hover { background: #28c940; }
+.btn-maximize:hover { background: #F2A2DE; }
 .btn-maximize:hover svg { fill: white; }   
 
 .hidden { display: none !important; }
