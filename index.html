@@ -51,23 +51,19 @@
             </div>
         </div>
 
+<!-- Window 1 -->
 <div id="win1" class="window">
     <div class="window-header" onmousedown="dragStart(event, 'win1')">
         <span>Photo Viewer</span>
         
-        <!-- Window Controls Container -->
+        <!-- Window Controls -->
         <div class="window-controls">
-            <!-- Minimize (Heart Icon) -->
             <button class="control-btn btn-minimize" onclick="minimizeWindow('win1')" title="Minimize">
                 <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
             </button>
-            
-            <!-- Maximize (Square Icon) -->
             <button class="control-btn btn-maximize" onclick="maximizeWindow('win1')" title="Maximize">
                 <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3V3zm2 2v14h14V5H5z"/></svg>
             </button>
-
-            <!-- Close (X Icon) -->
             <button class="control-btn btn-close" onclick="closeWindow('win1')" title="Close">
                 <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
             </button>
@@ -81,65 +77,57 @@
     </div>
 </div>   
 
-        <!-- Window 2 -->
-        <div id="win2" class="window" style="top: 150px; left: 150px;">
-            <div class="window-header" onmousedown="dragStart(event, 'win2')">
-                <span>Work IT Browser</span>
-				
-                <!-- Window Controls Container -->
+<!-- Window 2 -->
+<div id="win2" class="window" style="top: 150px; left: 150px;">
+    <div class="window-header" onmousedown="dragStart(event, 'win2')">
+        <span>Work IT Browser</span>
+        
+        <!-- Window Controls -->
         <div class="window-controls">
-            <!-- Minimize (Heart Icon) -->
-            <button class="control-btn btn-minimize" onclick="minimizeWindow('win1')" title="Minimize">
+            <button class="control-btn btn-minimize" onclick="minimizeWindow('win2')" title="Minimize">
                 <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
             </button>
-            
-            <!-- Maximize (Square Icon) -->
-            <button class="control-btn btn-maximize" onclick="maximizeWindow('win1')" title="Maximize">
+            <button class="control-btn btn-maximize" onclick="maximizeWindow('win2')" title="Maximize">
                 <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3V3zm2 2v14h14V5H5z"/></svg>
             </button>
-
-            <!-- Close (X Icon) -->
-            <button class="control-btn btn-close" onclick="closeWindow('win1')" title="Close">
+            <button class="control-btn btn-close" onclick="closeWindow('win2')" title="Close">
                 <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
             </button>
         </div>
-            <div class="window-content">
-                <a href="https://www.wikipedia.org" target="_blank" style="text-decoration: none;">
-                    <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=400&q=80" alt="Server">
-                    <div style="position:absolute; color:black; background:rgba(255,255,255,0.7); padding:5px; margin-top:-40px;">Click to Search</div>
-                </a>
-            </div>
-        </div>
+    </div>
+    <div class="window-content">
+        <a href="https://www.wikipedia.org" target="_blank" style="text-decoration: none;">
+            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=400&q=80" alt="Server">
+            <div style="position:absolute; color:black; background:rgba(255,255,255,0.7); padding:5px; margin-top:-40px;">Click to Search</div>
+        </a>
+    </div>
+</div>
 
-        <!-- Window 3 -->
-        <div id="win3" class="window" style="top: 200px; left: 200px;">
-            <div class="window-header" onmousedown="dragStart(event, 'win3')">
-                <span>VloggerU</span>
-				
-                <!-- Window Controls Container -->
+<!-- Window 3 -->
+<div id="win3" class="window" style="top: 200px; left: 200px;">
+    <div class="window-header" onmousedown="dragStart(event, 'win3')">
+        <span>VloggerU</span>
+        
+        <!-- Window Controls -->
         <div class="window-controls">
-            <!-- Minimize (Heart Icon) -->
-            <button class="control-btn btn-minimize" onclick="minimizeWindow('win1')" title="Minimize">
+            <button class="control-btn btn-minimize" onclick="minimizeWindow('win3')" title="Minimize">
                 <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
             </button>
-            
-            <!-- Maximize (Square Icon) -->
-            <button class="control-btn btn-maximize" onclick="maximizeWindow('win1')" title="Maximize">
+            <button class="control-btn btn-maximize" onclick="maximizeWindow('win3')" title="Maximize">
                 <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3V3zm2 2v14h14V5H5z"/></svg>
             </button>
-
-            <!-- Close (X Icon) -->
-            <button class="control-btn btn-close" onclick="closeWindow('win1')" title="Close">
+            <button class="control-btn btn-close" onclick="closeWindow('win3')" title="Close">
                 <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
             </button>
         </div>
-            <div class="window-content">
-                <a href="https://github.com" target="_blank" style="text-decoration: none;">
-                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80" alt="Chip">
-                    <div style="position:absolute; color:black; background:rgba(255,255,255,0.7); padding:5px; margin-top:-40px;">Click to Update</div>
-                </a>
-            </div>
-        </div>
+    </div>
+    <div class="window-content">
+        <a href="https://github.com" target="_blank" style="text-decoration: none;">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80" alt="Chip">
+            <div style="position:absolute; color:black; background:rgba(255,255,255,0.7); padding:5px; margin-top:-40px;">Click to Update</div>
+        </a>
+    </div>
+</div>
 
         <!-- Taskbar -->
         <div id="taskbar">
