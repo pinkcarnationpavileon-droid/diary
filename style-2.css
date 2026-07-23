@@ -19,7 +19,7 @@ body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden;
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: var(--desktop-bg) no-repeat center center/cover;
             z-index: 9998;
-            display: none; /* Hidden initially */
+            display: none;
             flex-direction: column; justify-content: center; align-items: center;
             backdrop-filter: blur(5px);
         }
@@ -27,7 +27,7 @@ body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden;
             background: rgba(0, 0, 0, 0.6); padding: 40px; border-radius: 10px;
             text-align: center; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-.avatar { width: 100px; height: 100px; background: #ddd; border-radius: 50%; margin: 0 auto 20px; background-image: url('https://cdn-icons-png.flaticon.com/512/3135/3135715.png'); background-size: cover; }
+.avatar { width: 100px; height: 100px; background: #ddd; border-radius: 50%; margin: 0 auto 20px; background-image: url('https://nicegirlslumber.neocities.org/newfavicon.png'); background-size: cover; }
 .password-input {
             background: rgba(255,255,255,0.2); border: 2px solid transparent;
             padding: 10px; color: white; font-size: 16px; text-align: center;
