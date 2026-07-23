@@ -1,6 +1,6 @@
 :root {
   --color-bg-main: #000;
-  --color-taskbar: rgb(20 20 20 / 0.9); /* Modern CSS color syntax */
+  --color-taskbar: rgb(20 20 20 / 0.9);
   --color-accent: #0078d7;
 }
 
@@ -30,13 +30,12 @@ body {
   align-items: center;
   justify-content: center;
   background-color: var(--bg-color);
-  color: #ffffff;
+  color: #FFABDA;
   transition: opacity 1s ease;
 }
 
 #login-screen {
   position: fixed;
-  inset: 0;
   z-index: 9998;
   display: none;
   flex-direction: column;
@@ -50,7 +49,7 @@ body {
   padding: 2.5rem;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.6);
-  color: #ffffff;
+  color: #EBA0C9;
   text-align: center;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
@@ -60,7 +59,10 @@ body {
   height: 100px;
   margin: 0 auto 20px;
   border-radius: 50%;
-  background: #dddddd url('https://cdn-icons-png.flaticon.com/512/3135/3135715.png') center / cover no-repeat;
+  background: #dddddd url('https://nicegirlslumber.neocities.org/newfavicon.png');
+  background-position: center; 
+  background-size: cover; 
+  background-repeat: no-repeat;
 }
 
 .password-input {
@@ -69,7 +71,7 @@ body {
   border: 2px solid transparent;
   border-radius: 4px;
   background-color: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
+  color: #452538;
   font-size: 1rem;
   text-align: center;
   outline: none;
