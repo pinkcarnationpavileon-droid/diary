@@ -11,7 +11,7 @@ body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden;
 
 #boot-screen {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: url('https://nicegirlslumber.neocities.org/vloggerU.jpg'); z-index: 9999;
+            background: url('https://nicegirlslumber.neocities.org/vloggerU.jpg'); color: pink; z-index: 9999;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             transition: opacity 1s ease;
         }
