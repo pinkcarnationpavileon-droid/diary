@@ -17,11 +17,6 @@
 
     <div id="fade-overlay"></div>
 
-    <div id="boot-screen">
-        <h2>Whose on the computer now...?</h2>
-        <img src="https://nicegirlslumber.neocities.org/ezgif.com-gif-heartmaker.gif" alt="Loading Heart" class="boot-gif">
-    </div>
-
     <div id="login-screen">
         <div class="login-box">
             <div class="avatar"></div>
@@ -29,6 +24,11 @@
             <input type="password" id="fake-pass" class="password-input" readonly>
             <p style="font-size: 16px; margin-top: 10px; opacity: 0.8;">"is typing..."</p>
         </div>
+    </div>
+
+    <div id="boot-screen">
+        <h2>Whose on the computer now...?</h2>
+        <img src="https://nicegirlslumber.neocities.org/ezgif.com-gif-heartmaker.gif" alt="Loading Heart" class="boot-gif">
     </div>
 
     <div id="desktop">
@@ -213,16 +213,8 @@
         }
 
         window.onload = function() {
-            const bootScreen = document.getElementById('boot-screen');
-            const loginScreen = document.getElementById('login-screen');
-            
-            setTimeout(() => {
-                whiteFadeTransition(() => {
-                    bootScreen.style.display = 'none';
-                    loginScreen.style.display = 'flex';
-                    simulateTyping();
-                });
-            }, 3000);
+            // Start typing immediately on the login screen
+            setTimeout(simulateTyping, 500);
         };
 
         function simulateTyping() {
@@ -236,17 +228,29 @@
                     i++;
                 } else {
                     clearInterval(typeInterval);
-                    setTimeout(loginToDesktop, 800);
+                    setTimeout(goToLoadingScreen, 800);
                 }
             }, 150);
         }
 
-        function loginToDesktop() {
+        function goToLoadingScreen() {
             const loginScreen = document.getElementById('login-screen');
-            const desktop = document.getElementById('desktop');
+            const bootScreen = document.getElementById('boot-screen');
             
             whiteFadeTransition(() => {
                 loginScreen.style.display = 'none';
+                bootScreen.style.display = 'flex';
+                // Hold boot screen loading animation for 3 seconds before opening desktop
+                setTimeout(loginToDesktop, 3000);
+            });
+        }
+
+        function loginToDesktop() {
+            const bootScreen = document.getElementById('boot-screen');
+            const desktop = document.getElementById('desktop');
+            
+            whiteFadeTransition(() => {
+                bootScreen.style.display = 'none';
                 desktop.style.display = 'flex';
                 startClock();
             });
