@@ -1,7 +1,7 @@
 :root {
             --bg-color: #000;
             --desktop-bg: url('https://nicegirlslumber.neocities.org/Sleepinatnight.png');
-            --taskbar-color: rgba(30, 20, 25, 0.95);
+            --taskbar-color: rgba(45, 25, 38, 0.92);
             --window-bg: #f0f0f0;
             --accent: #F2A2DE;
         }
@@ -118,91 +118,116 @@
         .desktop-icon img { width: 48px; height: 48px; margin-bottom: 5px; }
         .desktop-icon span { display: block; font-size: 12px; }
 
-        /* Taskbar Styles */
+        /* Cuter Taskbar Styles */
         #taskbar {
-            height: 50px; 
-            background: var(--taskbar-color);
+            height: 52px; 
+            background: linear-gradient(180deg, rgba(50, 25, 42, 0.95), rgba(30, 15, 25, 0.98));
             display: flex; 
             align-items: center; 
             justify-content: space-between;
-            padding: 0 15px; 
+            padding: 0 16px; 
             color: white; 
-            border-top: 2px solid #F2A2DE;
-            box-shadow: 0 -2px 10px rgba(242, 162, 222, 0.3);
+            border-top: 2px solid #ffb3e6;
+            box-shadow: 0 -4px 15px rgba(242, 162, 222, 0.35);
+            backdrop-filter: blur(8px);
         }
 
-        .taskbar-left, .taskbar-right {
+        .taskbar-left {
             display: flex;
             align-items: center;
-            gap: 12px;
+        }
+
+        .taskbar-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .power-btn {
-            background: linear-gradient(135deg, #ff7b9c, #d95376); 
+            background: linear-gradient(135deg, #ff85a2, #e05275); 
             color: #fff;
-            padding: 6px 14px; 
+            padding: 7px 16px; 
             border-radius: 20px;
             font-weight: bold; 
             cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-            border: none;
+            box-shadow: 0 2px 8px rgba(255, 117, 151, 0.4);
+            border: 1px solid #ffc2d1;
             font-size: 13px;
-            transition: transform 0.1s, filter 0.2s;
+            transition: transform 0.15s, filter 0.2s;
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .power-btn:hover { filter: brightness(1.1); transform: scale(1.03); }
-
-        .taskbar-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(242, 162, 222, 0.4);
-            color: #ffd1f4;
-            padding: 5px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 13px;
-            transition: all 0.2s;
             display: flex;
             align-items: center;
             gap: 6px;
         }
+        .power-btn:hover { filter: brightness(1.1); transform: scale(1.05); }
+
+        .taskbar-btn {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(242, 162, 222, 0.45);
+            color: #ffe3f7;
+            padding: 6px 14px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2);
+        }
         .taskbar-btn:hover {
-            background: rgba(242, 162, 222, 0.25);
+            background: rgba(242, 162, 222, 0.3);
             color: #fff;
+            border-color: #ffb3e6;
+            transform: translateY(-1px);
         }
 
         .notes-badge-btn {
             position: relative;
         }
         .notes-badge {
-            background: #ff5295;
+            background: #ff4785;
             color: white;
             font-size: 10px;
             font-weight: bold;
-            padding: 1px 5px;
+            padding: 2px 6px;
             border-radius: 10px;
-            margin-left: 4px;
+            margin-left: 2px;
+            box-shadow: 0 0 5px rgba(255, 71, 133, 0.8);
         }
 
         .system-tray-group {
             display: flex;
             align-items: center;
-            gap: 10px;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 4px 10px;
-            border-radius: 6px;
-            border: 1px solid rgba(242, 162, 222, 0.3);
+            gap: 12px;
+            background: rgba(0, 0, 0, 0.35);
+            padding: 5px 14px;
+            border-radius: 18px;
+            border: 1px solid rgba(242, 162, 222, 0.4);
             color: #ffd1f4;
-            font-size: 13px;
+            font-size: 12px;
+        }
+
+        .time-date-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            line-height: 1.1;
         }
 
         .clock { 
-            font-size: 14px; 
+            font-size: 12px; 
+            font-weight: bold;
+            color: #fff;
         }
 
-        /* Generic Modal / Popup Windows */
+        .date-display {
+            font-size: 10px;
+            color: #f7c3e8;
+        }
+
+        /* Generic Pop-up Modals */
         .popup-modal {
             position: fixed;
             top: 50%; left: 50%;
@@ -210,7 +235,7 @@
             width: 320px;
             background: #fff;
             border: 2px solid #F2A2DE;
-            border-radius: 8px;
+            border-radius: 12px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.5);
             display: none;
             flex-direction: column;
@@ -235,6 +260,64 @@
             color: #333;
         }
 
+        /* Slide-up Quick Controls Modal (Accessibility & Toggles) */
+        #accessibility-modal {
+            top: auto;
+            left: auto;
+            bottom: 60px;
+            right: 16px;
+            transform: translateY(20px);
+            opacity: 0;
+            width: 300px;
+            border-radius: 16px;
+            border: 2px solid #ffb3e6;
+            box-shadow: 0 8px 25px rgba(242, 162, 222, 0.4);
+            transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s ease;
+            pointer-events: none;
+        }
+
+        #accessibility-modal.active {
+            display: flex;
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .quick-toggles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .toggle-card {
+            background: #fff0f7;
+            border: 1px solid #f3c2e7;
+            border-radius: 12px;
+            padding: 10px 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #70365f;
+            font-size: 11px;
+            font-weight: 600;
+            gap: 4px;
+        }
+
+        .toggle-card.active {
+            background: #F2A2DE;
+            color: white;
+            border-color: #e384c9;
+            box-shadow: 0 2px 8px rgba(242, 162, 222, 0.5);
+        }
+
+        .toggle-card span.icon {
+            font-size: 16px;
+        }
+
         /* Notepad Simulation Styling */
         .notepad-body {
             background: #fff;
@@ -250,14 +333,14 @@
         .settings-grid {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
         .setting-card {
             background: #fdf6fb;
             border: 1px solid #e2b8d7;
             padding: 10px 14px;
-            border-radius: 6px;
-            font-size: 13px;
+            border-radius: 10px;
+            font-size: 12px;
             color: #5c3251;
         }
         .setting-card label {
@@ -265,7 +348,7 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 6px;
-            font-weight: 500;
+            font-weight: 600;
         }
         .setting-card input[type="range"] {
             width: 100%;
