@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
-</head>
+    </head>
 
 <body>
 
@@ -120,26 +120,32 @@
             </div>
         </div>
 
-        <!-- Updated Taskbar Layout -->
         <div id="taskbar">
             <div class="taskbar-left">
-                <a href="poweroff.html" class="power-btn">⏻ Power</a>
+                <a href="poweroff.html" class="power-btn">🌸 Power</a>
             </div>
+
             <div class="taskbar-right">
-                <div class="system-tray-group">
-                    <div class="clock" id="clock">12:00 PM</div>
-                    <span>🔋 89%</span>
-                </div>
                 <button class="taskbar-btn notes-badge-btn" onclick="toggleNotepadModal()">
                     📝 Notes <span class="notes-badge">1</span>
                 </button>
-                <button class="taskbar-btn" onclick="toggleAccessibilityModal()">Accessibility</button>
-                <button class="taskbar-btn" onclick="toggleCameraFeed()">Live Camera Feed</button>
+                <button class="taskbar-btn" onclick="toggleAccessibilityModal()">
+                    ✨ Controls
+                </button>
+                <button class="taskbar-btn" onclick="toggleCameraFeed()">
+                    📷 Live Cam
+                </button>
+                <div class="system-tray-group">
+                    <div class="time-date-container">
+                        <span class="clock" id="clock">12:00 PM</span>
+                        <span class="date-display">Oct 24, 2026</span>
+                    </div>
+                    <span>🔋 89%</span>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Notepad Pop-up Modal -->
     <div id="notepad-modal" class="popup-modal">
         <div class="popup-header">
             <span>📝 Notepad - note.txt</span>
@@ -154,13 +160,27 @@
         </div>
     </div>
 
-    <!-- Humanized Accessibility & Settings Pop-up Modal -->
     <div id="accessibility-modal" class="popup-modal">
         <div class="popup-header">
-            <span>⚙️ Accessibility & Comfort</span>
+            <span>⚙️ Quick Controls & Comfort</span>
             <button class="popup-close" onclick="toggleAccessibilityModal()">×</button>
         </div>
         <div class="popup-body">
+            <div class="quick-toggles-grid">
+                <div class="toggle-card active" onclick="toggleQuickState(this)">
+                    <span class="icon">📶</span>
+                    <span>Wi-Fi</span>
+                </div>
+                <div class="toggle-card active" onclick="toggleQuickState(this)">
+                    <span class="icon">🎧</span>
+                    <span>Bluetooth</span>
+                </div>
+                <div class="toggle-card" onclick="toggleQuickState(this)">
+                    <span class="icon">✈️</span>
+                    <span>Airplane</span>
+                </div>
+            </div>
+
             <div class="settings-grid">
                 <div class="setting-card">
                     <label><span>☀️ Screen Brightness</span> <span id="bright-val">80%</span></label>
@@ -174,7 +194,6 @@
         </div>
     </div>
 
-    <!-- Live Camera Feed Pop-up Modal -->
     <div id="cam-modal" class="popup-modal">
         <div class="popup-header">
             <span>📷 Live Camera Feed</span>
@@ -247,7 +266,11 @@
 
         function toggleAccessibilityModal() {
             const modal = document.getElementById('accessibility-modal');
-            modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
+            modal.classList.toggle('active');
+        }
+
+        function toggleQuickState(element) {
+            element.classList.toggle('active');
         }
 
         function toggleCameraFeed() {
@@ -317,7 +340,7 @@
                 win.style.borderRadius = '6px';
             } else {
                 win.style.width = '100%';
-                win.style.height = 'calc(100% - 50px)';
+                win.style.height = 'calc(100% - 52px)';
                 win.style.top = '0';
                 win.style.left = '0';
                 win.style.borderRadius = '0';
