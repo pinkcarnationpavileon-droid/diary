@@ -179,7 +179,7 @@
 .taskbar-btn {
     background: #ffd1dc; /* Solid light pastel pink (non-gradient) */
     border: 1.5px solid #ffffff; /* White border */
-    color: #5c2b4e; /* Darker text for readability on light pink */
+    color: #white; /* Darker text for readability on light pink */
     padding: 6px 14px;
     border-radius: 15px;
     cursor: pointer;
