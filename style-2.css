@@ -1,4 +1,4 @@
-:root {
+ :root {
             --bg-color: #000;
             --desktop-bg: url('https://nicegirlslumber.neocities.org/Sleepinatnight.png');
             --taskbar-color: rgba(30, 20, 25, 0.95);
@@ -118,7 +118,7 @@
         .desktop-icon img { width: 48px; height: 48px; margin-bottom: 5px; }
         .desktop-icon span { display: block; font-size: 12px; }
 
-        /* Enhanced Pink Taskbar Styles */
+        /* Taskbar Styles */
         #taskbar {
             height: 50px; 
             background: var(--taskbar-color);
@@ -173,12 +173,12 @@
             color: #ffd1f4;
         }
 
-        /* Live Camera Feed Modal Window */
-        #cam-modal {
+        /* Generic Modal / Popup Windows */
+        .popup-modal {
             position: fixed;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            width: 350px;
+            width: 320px;
             background: #fff;
             border: 2px solid #F2A2DE;
             border-radius: 8px;
@@ -186,8 +186,9 @@
             display: none;
             flex-direction: column;
             z-index: 10000;
+            overflow: hidden;
         }
-        .cam-header {
+        .popup-header {
             background: #F2A2DE;
             color: #fff;
             padding: 8px 12px;
@@ -196,17 +197,41 @@
             justify-content: space-between;
             align-items: center;
         }
-        .cam-close {
+        .popup-close {
             background: none; border: none; color: white; font-size: 16px; cursor: pointer;
         }
-        .cam-body {
-            padding: 10px;
-            text-align: center;
-            background: #000;
+        .popup-body {
+            padding: 15px;
+            background: #fafafa;
+            color: #333;
         }
-        .cam-body img {
-            width: 100%;
-            border-radius: 4px;
+
+        /* Notepad Simulation Styling */
+        .notepad-body {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            height: 180px;
+            overflow-y: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13px;
+        }
+
+        /* Quick Settings / Accessibility Grid Styling */
+        .settings-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .setting-tile {
+            background: #f2e1ed;
+            border: 1px solid #e2b8d7;
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 13px;
+            color: #5c3251;
+            font-weight: 500;
         }
 
         .window {
