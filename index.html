@@ -16,17 +16,12 @@
 <body>
 
                                                                           <div id="boot-screen">
+                        <h2>Whose on the computer now...?</h2>
                         
-    <h2>Who's on the computer now...?</h2>
-    
-    <div id="load-bar" class="heart-loader">
-        <span class="heart">❤️</span>
-        <span class="heart">❤️</span>
-        <span class="heart">❤️</span>
-        <span class="heart">❤️</span>
-        <span class="heart">❤️</span>
-    </div>
-</div>
+                    <div style="width: 200px; height: 4px; background: #333; margin-top: 20px; border-radius: 2px;">
+                            <div id="load-bar" style="width: 0%; height: 100%; background: white; transition: width 2s ease-in-out;"></div>
+                        </div>
+                    </div>
 
 
                     <div id="login-screen">
@@ -134,7 +129,7 @@
     </div>
 </div>
 
-        
+        <!-- Taskbar -->
         <div id="taskbar">
             <div class="start-btn">hey you!</div>
             <div class="clock" id="clock">12:00 PM</div>
@@ -143,35 +138,23 @@
 
     <script>
         
-        
-@keyframes jump {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-10px); /* Jump height */
-    }
-}
-		window.onload = function() {
-    const loadBar = document.getElementById('load-bar');
-    const bootScreen = document.getElementById('boot-screen');
-    const loginScreen = document.getElementById('login-screen');
-    
- 
-    setTimeout(() => { 
-        loadBar.classList.add('loading');
-        loadBar.style.opacity = '1'; 
-    }, 100);
+        window.onload = function() {
+            const loadBar = document.getElementById('load-bar');
+            const bootScreen = document.getElementById('boot-screen');
+            const loginScreen = document.getElementById('login-screen');
+            
+          
+           setTimeout(() => { loadBar.style.width = '100%'; }, 100);
 
-    setTimeout(() => {
-        bootScreen.style.opacity = '0';
-        setTimeout(() => {
-            bootScreen.style.display = 'none';
-            loginScreen.style.display = 'flex';
-            simulateTyping();
-        }, 1000);
-    }, 2500);
-};
+                        setTimeout(() => {
+                bootScreen.style.opacity = '0';
+                setTimeout(() => {
+                    bootScreen.style.display = 'none';
+                    loginScreen.style.display = 'flex';
+                    simulateTyping();
+                }, 1000);
+            }, 2500);
+        };
 
 
         function simulateTyping() {
