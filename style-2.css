@@ -134,35 +134,26 @@
         .taskbar-left, .taskbar-right {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .power-btn {
-            background: rgba(255, 75, 75, 0.2);
-            border: 1px solid rgba(255, 75, 75, 0.5);
-            color: #ff9999;
-            padding: 5px 10px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 13px;
-            transition: all 0.2s;
-        }
-        .power-btn:hover {
-            background: rgba(255, 75, 75, 0.4);
+            background: linear-gradient(135deg, #ff7b9c, #d95376); 
             color: #fff;
-        }
-
-        .start-btn {
-            background: linear-gradient(135deg, #F2A2DE, #d97bbd); 
-            color: #fff;
-            padding: 6px 16px; 
+            padding: 6px 14px; 
             border-radius: 20px;
             font-weight: bold; 
             cursor: pointer;
             box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            border: none;
+            font-size: 13px;
             transition: transform 0.1s, filter 0.2s;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
-        .start-btn:hover { filter: brightness(1.1); transform: scale(1.03); }
+        .power-btn:hover { filter: brightness(1.1); transform: scale(1.03); }
 
         .taskbar-btn {
             background: rgba(255, 255, 255, 0.1);
@@ -173,30 +164,42 @@
             cursor: pointer;
             font-size: 13px;
             transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
         .taskbar-btn:hover {
             background: rgba(242, 162, 222, 0.25);
             color: #fff;
         }
 
-        .clock { 
-            font-size: 14px; 
-            background: rgba(0, 0, 0, 0.4);
-            padding: 4px 10px;
-            border-radius: 4px;
-            border: 1px solid rgba(242, 162, 222, 0.3);
-            color: #ffd1f4;
+        .notes-badge-btn {
+            position: relative;
+        }
+        .notes-badge {
+            background: #ff5295;
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 1px 5px;
+            border-radius: 10px;
+            margin-left: 4px;
         }
 
-        .system-tray-info {
-            font-size: 13px;
-            background: rgba(255, 255, 255, 0.08);
-            padding: 4px 8px;
-            border-radius: 4px;
-            color: #ffd1f4;
+        .system-tray-group {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(242, 162, 222, 0.3);
+            color: #ffd1f4;
+            font-size: 13px;
+        }
+
+        .clock { 
+            font-size: 14px; 
         }
 
         /* Generic Modal / Popup Windows */
@@ -243,29 +246,28 @@
             font-size: 13px;
         }
 
-        /* Humanized Settings / Accessibility Styling */
-        .settings-container {
+        /* Human-styled Accessibility & Controls Grid */
+        .settings-grid {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
-        .setting-row {
-            background: #f2e1ed;
+        .setting-card {
+            background: #fdf6fb;
             border: 1px solid #e2b8d7;
-            padding: 10px 12px;
+            padding: 10px 14px;
             border-radius: 6px;
             font-size: 13px;
             color: #5c3251;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
         }
-        .setting-row label {
+        .setting-card label {
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
             font-weight: 500;
         }
-        .setting-row input[type="range"] {
+        .setting-card input[type="range"] {
             width: 100%;
             accent-color: #F2A2DE;
             cursor: pointer;
