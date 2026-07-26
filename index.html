@@ -16,12 +16,17 @@
 <body>
 
                                                                           <div id="boot-screen">
-                        <h2>Whose on the computer now...?</h2>
                         
-                    <div style="width: 200px; height: 4px; background: #333; margin-top: 20px; border-radius: 2px;">
-                            <div id="load-bar" style="width: 0%; height: 100%; background: white; transition: width 2s ease-in-out;"></div>
-                        </div>
-                    </div>
+    <h2>Who's on the computer now...?</h2>
+    
+    <div id="load-bar" class="heart-loader">
+        <span class="heart">❤️</span>
+        <span class="heart">❤️</span>
+        <span class="heart">❤️</span>
+        <span class="heart">❤️</span>
+        <span class="heart">❤️</span>
+    </div>
+</div>
 
 
                     <div id="login-screen">
@@ -129,7 +134,7 @@
     </div>
 </div>
 
-        <!-- Taskbar -->
+        
         <div id="taskbar">
             <div class="start-btn">hey you!</div>
             <div class="clock" id="clock">12:00 PM</div>
@@ -138,23 +143,61 @@
 
     <script>
         
-        window.onload = function() {
-            const loadBar = document.getElementById('load-bar');
-            const bootScreen = document.getElementById('boot-screen');
-            const loginScreen = document.getElementById('login-screen');
-            
-          
-           setTimeout(() => { loadBar.style.width = '100%'; }, 100);
+        
+.heart-loader {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    opacity: 0.3;
+    transition: opacity 0.5s ease-in-out;
+}
 
-                        setTimeout(() => {
-                bootScreen.style.opacity = '0';
-                setTimeout(() => {
-                    bootScreen.style.display = 'none';
-                    loginScreen.style.display = 'flex';
-                    simulateTyping();
-                }, 1000);
-            }, 2500);
-        };
+
+.heart-loader .heart {
+    font-size: 24px; 
+    display: inline-block;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.heart-loader.loading .heart {
+    animation: jump 0.6s infinite alternate;
+}
+
+.heart-loader.loading .heart:nth-child(1) { animation-delay: 0.1s; }
+.heart-loader.loading .heart:nth-child(2) { animation-delay: 0.2s; }
+.heart-loader.loading .heart:nth-child(3) { animation-delay: 0.3s; }
+.heart-loader.loading .heart:nth-child(4) { animation-delay: 0.4s; }
+.heart-loader.loading .heart:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px); /* Jump height */
+    }
+}
+		window.onload = function() {
+    const loadBar = document.getElementById('load-bar');
+    const bootScreen = document.getElementById('boot-screen');
+    const loginScreen = document.getElementById('login-screen');
+    
+ 
+    setTimeout(() => { 
+        loadBar.classList.add('loading');
+        loadBar.style.opacity = '1'; 
+    }, 100);
+
+    setTimeout(() => {
+        bootScreen.style.opacity = '0';
+        setTimeout(() => {
+            bootScreen.style.display = 'none';
+            loginScreen.style.display = 'flex';
+            simulateTyping();
+        }, 1000);
+    }, 2500);
+};
 
 
         function simulateTyping() {
