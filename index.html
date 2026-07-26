@@ -120,9 +120,27 @@
             </div>
         </div>
 
+        <!-- Updated Taskbar with accessibility, camera feed button, and clock -->
         <div id="taskbar">
-            <div class="start-btn">hey you!</div>
-            <div class="clock" id="clock">12:00 PM</div>
+            <div class="taskbar-left">
+                <div class="start-btn">hey you!</div>
+                <button class="taskbar-btn" onclick="toggleAccessibility()">Accessibility</button>
+                <button class="taskbar-btn" onclick="toggleCameraFeed()">Live Camera Feed</button>
+            </div>
+            <div class="taskbar-right">
+                <div class="clock" id="clock">12:00 PM</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Camera Feed Pop-up Modal -->
+    <div id="cam-modal">
+        <div class="cam-header">
+            <span>📷 Live Camera Feed</span>
+            <button class="cam-close" onclick="toggleCameraFeed()">×</button>
+        </div>
+        <div class="cam-body">
+            <img src="https://nicegirlslumber.neocities.org/vloggerU.jpg" alt="Live Feed">
         </div>
     </div>
 
@@ -175,6 +193,17 @@
                 const now = new Date();
                 clockEl.innerText = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
             }, 1000);
+        }
+
+        // Toggle Live Camera Feed Popup
+        function toggleCameraFeed() {
+            const modal = document.getElementById('cam-modal');
+            modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
+        }
+
+        // Accessibility action stub
+        function toggleAccessibility() {
+            alert("Accessibility settings opened! (Customize as needed)");
         }
 
         let zIndexCounter = 10;
@@ -239,7 +268,7 @@
                 win.style.borderRadius = '6px';
             } else {
                 win.style.width = '100%';
-                win.style.height = 'calc(100% - 45px)';
+                win.style.height = 'calc(100% - 50px)';
                 win.style.top = '0';
                 win.style.left = '0';
                 win.style.borderRadius = '0';
