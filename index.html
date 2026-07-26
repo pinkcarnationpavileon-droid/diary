@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
-   </head>
+    </head>
 
 <body>
 
@@ -120,11 +120,11 @@
             </div>
         </div>
 
-        <!-- Updated Taskbar with accessibility, camera feed button, and clock -->
+        <!-- Updated Taskbar with 'hey you!' hooked to Notepad and Accessibility hooked to settings -->
         <div id="taskbar">
             <div class="taskbar-left">
-                <div class="start-btn">hey you!</div>
-                <button class="taskbar-btn" onclick="toggleAccessibility()">Accessibility</button>
+                <div class="start-btn" onclick="toggleNotepadModal()">hey you!</div>
+                <button class="taskbar-btn" onclick="toggleAccessibilityModal()">Accessibility</button>
                 <button class="taskbar-btn" onclick="toggleCameraFeed()">Live Camera Feed</button>
             </div>
             <div class="taskbar-right">
@@ -133,14 +133,45 @@
         </div>
     </div>
 
-    <!-- Live Camera Feed Pop-up Modal -->
-    <div id="cam-modal">
-        <div class="cam-header">
-            <span>📷 Live Camera Feed</span>
-            <button class="cam-close" onclick="toggleCameraFeed()">×</button>
+    <!-- Notepad Pop-up Modal -->
+    <div id="notepad-modal" class="popup-modal">
+        <div class="popup-header">
+            <span>📝 Notepad - note.txt</span>
+            <button class="popup-close" onclick="toggleNotepadModal()">×</button>
         </div>
-        <div class="cam-body">
-            <img src="https://nicegirlslumber.neocities.org/vloggerU.jpg" alt="Live Feed">
+        <div class="popup-body">
+            <div class="notepad-body">
+                <p>Hey you! If you are reading this, I probably left my computer running again...</p>
+                <p>Don't look too closely at my browser tabs or my draft video files!!</p>
+                <p>Leave a note or close this window before I get back. 💖 - Milagro</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Accessibility / Quick Settings Pop-up Modal -->
+    <div id="accessibility-modal" class="popup-modal">
+        <div class="popup-header">
+            <span>⚙️ Quick Settings</span>
+            <button class="popup-close" onclick="toggleAccessibilityModal()">×</button>
+        </div>
+        <div class="popup-body">
+            <div class="settings-grid">
+                <div class="setting-tile">📶 Wi-Fi<br><span style="font-size:11px; font-weight:normal;">Connected</span></div>
+                <div class="setting-tile">蓝牙 Bluetooth<br><span style="font-size:11px; font-weight:normal;">On</span></div>
+                <div class="setting-tile">✈️ Airplane Mode<br><span style="font-size:11px; font-weight:normal;">Off</span></div>
+                <div class="setting-tile">🌙 Night Light<br><span style="font-size:11px; font-weight:normal;">Enabled</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Camera Feed Pop-up Modal -->
+    <div id="cam-modal" class="popup-modal">
+        <div class="popup-header">
+            <span>📷 Live Camera Feed</span>
+            <button class="popup-close" onclick="toggleCameraFeed()">×</button>
+        </div>
+        <div class="popup-body" style="padding: 10px; background: #000; text-align: center;">
+            <img src="https://nicegirlslumber.neocities.org/vloggerU.jpg" alt="Live Feed" style="width: 100%; border-radius: 4px;">
         </div>
     </div>
 
@@ -195,15 +226,20 @@
             }, 1000);
         }
 
-        // Toggle Live Camera Feed Popup
-        function toggleCameraFeed() {
-            const modal = document.getElementById('cam-modal');
+        // Toggle modals cleanly
+        function toggleNotepadModal() {
+            const modal = document.getElementById('notepad-modal');
             modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
         }
 
-        // Accessibility action stub
-        function toggleAccessibility() {
-            alert("Accessibility settings opened! (Customize as needed)");
+        function toggleAccessibilityModal() {
+            const modal = document.getElementById('accessibility-modal');
+            modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
+        }
+
+        function toggleCameraFeed() {
+            const modal = document.getElementById('cam-modal');
+            modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
         }
 
         let zIndexCounter = 10;
