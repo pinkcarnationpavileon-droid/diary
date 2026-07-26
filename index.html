@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="style-2.css">
     <title>what's the ₛᵤbₛcᵣᵢbₑd list like?</title>
     <link rel="icon" type="image/jpeg" href="newfavicon.png" alt="myface">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
 </head>
 
-	
 <body>
 
     <div id="boot-screen">
@@ -169,7 +168,7 @@
         <div class="popup-body">
             <div class="quick-toggles-grid">
                 <div class="toggle-card active" onclick="toggleQuickState(this)">
-                    <span class="icon"></span>
+                    <span class="icon">📶</span>
                     <span>Wi-Fi</span>
                 </div>
                 <div class="toggle-card active" onclick="toggleQuickState(this)">
@@ -201,7 +200,7 @@
             <button class="popup-close" onclick="toggleCameraFeed()">×</button>
         </div>
         <div class="popup-body" style="padding: 10px; background: #000; text-align: center;">
-            <img src=https://nicegirlslumber.neocities.org/Sleepinatnight.png" alt="Live Feed" style="width: 100%; border-radius: 4px;">
+            <img src="https://nicegirlslumber.neocities.org/Sleepinatnight.png" alt="Live Feed" style="width: 100%; border-radius: 4px;">
         </div>
     </div>
 
@@ -256,11 +255,9 @@
             }, 1000);
         }
 
-        // Toggle modals cleanly
         function toggleNotepadModal() {
             const modal = document.getElementById('notepad-modal');
             modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
-            // Clear badge once read
             const badge = document.querySelector('.notes-badge');
             if (badge) badge.style.display = 'none';
         }
@@ -348,6 +345,5 @@
             }
         }
     </script>
-
 </body>
 </html>
