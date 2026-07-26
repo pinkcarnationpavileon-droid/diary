@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
-    </head>
+</head>
 
 <body>
 
@@ -120,15 +120,17 @@
             </div>
         </div>
 
-        <!-- Updated Taskbar with 'hey you!' hooked to Notepad and Accessibility hooked to settings -->
+        <!-- Taskbar layout updated: Power button on left, elements on right rearranged -->
         <div id="taskbar">
             <div class="taskbar-left">
+                <button class="power-btn" onclick="powerOff()">⏻ Power Off</button>
                 <div class="start-btn" onclick="toggleNotepadModal()">hey you!</div>
-                <button class="taskbar-btn" onclick="toggleAccessibilityModal()">Accessibility</button>
-                <button class="taskbar-btn" onclick="toggleCameraFeed()">Live Camera Feed</button>
             </div>
             <div class="taskbar-right">
                 <div class="clock" id="clock">12:00 PM</div>
+                <div class="system-tray-info" title="Battery">⚡ 89%</div>
+                <button class="taskbar-btn" onclick="toggleAccessibilityModal()">Accessibility</button>
+                <button class="taskbar-btn" onclick="toggleCameraFeed()">Live Camera Feed</button>
             </div>
         </div>
     </div>
@@ -148,18 +150,22 @@
         </div>
     </div>
 
-    <!-- Accessibility / Quick Settings Pop-up Modal -->
+    <!-- Humanized Accessibility / Quick Settings Pop-up Modal -->
     <div id="accessibility-modal" class="popup-modal">
         <div class="popup-header">
-            <span>⚙️ Quick Settings</span>
+            <span>⚙️ Quick Adjustments</span>
             <button class="popup-close" onclick="toggleAccessibilityModal()">×</button>
         </div>
         <div class="popup-body">
-            <div class="settings-grid">
-                <div class="setting-tile">📶 Wi-Fi<br><span style="font-size:11px; font-weight:normal;">Connected</span></div>
-                <div class="setting-tile">蓝牙 Bluetooth<br><span style="font-size:11px; font-weight:normal;">On</span></div>
-                <div class="setting-tile">✈️ Airplane Mode<br><span style="font-size:11px; font-weight:normal;">Off</span></div>
-                <div class="setting-tile">🌙 Night Light<br><span style="font-size:11px; font-weight:normal;">Enabled</span></div>
+            <div class="settings-container">
+                <div class="setting-row">
+                    <label><span>☀️ Screen Brightness</span><span id="light-val">75%</span></label>
+                    <input type="range" id="light-slider" min="10" max="100" value="75" oninput="updateLight(this.value)">
+                </div>
+                <div class="setting-row">
+                    <label><span>🔊 Master Volume</span><span id="sound-val">60%</span></label>
+                    <input type="range" id="sound-slider" min="0" max="100" value="60" oninput="updateSound(this.value)">
+                </div>
             </div>
         </div>
     </div>
@@ -224,6 +230,18 @@
                 const now = new Date();
                 clockEl.innerText = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
             }, 1000);
+        }
+
+        function updateLight(val) {
+            document.getElementById('light-val').innerText = val + '%';
+        }
+
+        function updateSound(val) {
+            document.getElementById('sound-val').innerText = val + '%';
+        }
+
+        function powerOff() {
+            window.location.href = "https://www.google.com"; // Redirects to another page
         }
 
         // Toggle modals cleanly
