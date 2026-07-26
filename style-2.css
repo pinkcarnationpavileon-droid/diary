@@ -9,6 +9,32 @@
 * { box-sizing: border-box; user-select: none; }
 body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
 
+.heart-loader {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    opacity: 0.3;
+    transition: opacity 0.5s ease-in-out;
+}
+
+
+.heart-loader .heart {
+    font-size: 24px; 
+    display: inline-block;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.heart-loader.loading .heart {
+    animation: jump 0.6s infinite alternate;
+}
+
+.heart-loader.loading .heart:nth-child(1) { animation-delay: 0.1s; }
+.heart-loader.loading .heart:nth-child(2) { animation-delay: 0.2s; }
+.heart-loader.loading .heart:nth-child(3) { animation-delay: 0.3s; }
+.heart-loader.loading .heart:nth-child(4) { animation-delay: 0.4s; }
+.heart-loader.loading .heart:nth-child(5) { animation-delay: 0.5s; }
+
 #boot-screen {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: url('https://nicegirlslumber.neocities.org/vloggerU.jpg'); 
