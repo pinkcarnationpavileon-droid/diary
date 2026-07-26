@@ -31,7 +31,7 @@
             <div class="avatar"></div>
             <h3>Milagro</h3>
             <input type="password" id="fake-pass" class="password-input" readonly>
-            <p style="font-size: 12px; margin-top: 10px; opacity: 0.8;">typing...</p>
+            <p style="font-size: 12px; margin-top: 10px; opacity: 0.8;">"is typing..."</p>
         </div>
     </div>
 
@@ -122,25 +122,25 @@
 
         <div id="taskbar">
             <div class="taskbar-left">
-                <a href="poweroff.html" class="power-btn">🌸 Power</a>
+                <a href="poweroff.html" class="power-btn">Power</a>
             </div>
 
             <div class="taskbar-right">
                 <button class="taskbar-btn notes-badge-btn" onclick="toggleNotepadModal()">
-                    📝 Notes <span class="notes-badge">1</span>
+                    Notes <span class="notes-badge">1</span>
                 </button>
                 <button class="taskbar-btn" onclick="toggleAccessibilityModal()">
-                    ✨ Controls
+                    Accessibility
                 </button>
                 <button class="taskbar-btn" onclick="toggleCameraFeed()">
-                    📷 Live Cam
+                    Live Cam
                 </button>
                 <div class="system-tray-group">
                     <div class="time-date-container">
                         <span class="clock" id="clock">12:00 PM</span>
                         <span class="date-display">Oct 24, 2026</span>
                     </div>
-                    <span>🔋 89%</span>
+                    <span> 89%</span>
                 </div>
             </div>
         </div>
@@ -148,27 +148,27 @@
 
     <div id="notepad-modal" class="popup-modal">
         <div class="popup-header">
-            <span>📝 Notepad - note.txt</span>
+            <span> Notepad - note.txt</span>
             <button class="popup-close" onclick="toggleNotepadModal()">×</button>
         </div>
         <div class="popup-body">
             <div class="notepad-body">
                 <p>Hey you! If you are reading this, I probably left my computer running again...</p>
                 <p>Don't look too closely at my browser tabs or my draft video files!!</p>
-                <p>Leave a note or close this window before I get back. 💖 - Milagro</p>
+                <p>Leave a note or close this window before I get back. <br> love, Milagro</p>
             </div>
         </div>
     </div>
 
     <div id="accessibility-modal" class="popup-modal">
         <div class="popup-header">
-            <span>⚙️ Quick Controls & Comfort</span>
+            <span> Quick Controls & Comfort</span>
             <button class="popup-close" onclick="toggleAccessibilityModal()">×</button>
         </div>
         <div class="popup-body">
             <div class="quick-toggles-grid">
                 <div class="toggle-card active" onclick="toggleQuickState(this)">
-                    <span class="icon">📶</span>
+                    <span class="icon"></span>
                     <span>Wi-Fi</span>
                 </div>
                 <div class="toggle-card active" onclick="toggleQuickState(this)">
@@ -183,11 +183,11 @@
 
             <div class="settings-grid">
                 <div class="setting-card">
-                    <label><span>☀️ Screen Brightness</span> <span id="bright-val">80%</span></label>
+                    <label><span>Screen Brightness</span> <span id="bright-val">80%</span></label>
                     <input type="range" min="10" max="100" value="80" oninput="document.getElementById('bright-val').innerText = this.value + '%'">
                 </div>
                 <div class="setting-card">
-                    <label><span>🔊 Master Volume</span> <span id="vol-val">65%</span></label>
+                    <label><span>Master Volume</span> <span id="vol-val">65%</span></label>
                     <input type="range" min="0" max="100" value="65" oninput="document.getElementById('vol-val').innerText = this.value + '%'">
                 </div>
             </div>
@@ -200,7 +200,7 @@
             <button class="popup-close" onclick="toggleCameraFeed()">×</button>
         </div>
         <div class="popup-body" style="padding: 10px; background: #000; text-align: center;">
-            <img src="https://nicegirlslumber.neocities.org/vloggerU.jpg" alt="Live Feed" style="width: 100%; border-radius: 4px;">
+            <img src=https://nicegirlslumber.neocities.org/Sleepinatnight.png" alt="Live Feed" style="width: 100%; border-radius: 4px;">
         </div>
     </div>
 
